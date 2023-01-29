@@ -1,7 +1,13 @@
 import "./App.css";
+import { PageWrapper } from "./componnets/styled";
+import TinderCard from "./componnets/TinderCard";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <PageWrapper>
+      <TinderCard />
+    </PageWrapper>
+  );
 }
 
 export default App;
