@@ -44,5 +44,7 @@ export const SingleCardWrapper = styled(CardBase)<CardBackground>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    padding: 2vmin;
   }
 `;

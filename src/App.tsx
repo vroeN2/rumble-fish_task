@@ -15,7 +15,7 @@ const test: MovieCardInterface = {
   rating: 7.5,
   summary:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam alias blanditiis doloremque fugit omnis autem magni est sit perspiciatis quos!",
-  title: "Star Warsy",
+  title: "Lorem ipsum dolor sit, amet consectetur adipisicing",
 };
 
 function App() {

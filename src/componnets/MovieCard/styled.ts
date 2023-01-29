@@ -21,6 +21,8 @@ export const MovieTitle = styled.h2`
   margin: 0;
   font-size: 2rem;
   color: #333d48;
+  text-align: center;
+  margin-bottom: 1vmin;
 `;
 
 export const MovieRating = styled.h3`
