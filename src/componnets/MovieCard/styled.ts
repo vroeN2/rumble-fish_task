@@ -4,6 +4,7 @@ export const CardWrapper = styled.div`
   aspect-ratio: 5 / 7;
   width: 30vmin;
   position: absolute;
+  transition: 300ms all ease;
 
   &:hover > :nth-child(1) {
     transform: translate(-75%, 16%) rotate(-20deg);

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { MovieCardInterface } from "../../App";
 import SingleCard from "../SingleCard";
 import { CardWrapper, MovieRating, MovieTitle, MovieDesc } from "./styled";
 import CSS from "csstype";
-import PhotoModal from "../PhotoModal";
 
 interface ExtendedMovieCardInterface extends Omit<MovieCardInterface, "id"> {
   index: number;
   visibleCardIndex: number;
+  animation: CSS.Properties;
 }
 
 const MovieCard = ({
@@ -17,16 +17,12 @@ const MovieCard = ({
   rating,
   index,
   visibleCardIndex,
+  animation,
 }: ExtendedMovieCardInterface): JSX.Element => {
-  const [isPhotoOpen, setIsPhotoOpen] = useState(false);
-  const currentStyle: CSS.Properties =
+  const currentStyle =
     visibleCardIndex === index
-      ? {
-          transform: "scale(1)",
-        }
-      : {
-          transform: "scale(0)",
-        };
+      ? { transform: "translateX(0) scale(1)" }
+      : animation;
 
   return (
     <CardWrapper style={currentStyle}>
@@ -36,12 +32,7 @@ const MovieCard = ({
       </SingleCard>
 
       {/* photo card */}
-      <SingleCard
-        backgroundURL={image}
-        onClick={() => setIsPhotoOpen((isPhotoOpen) => !isPhotoOpen)}
-      />
-
-      {isPhotoOpen && <PhotoModal link={image} setFalse={setIsPhotoOpen} />}
+      <SingleCard backgroundURL={image} />
 
       {/* title card */}
       <SingleCard>

@@ -10,6 +10,7 @@ import {
 import { FaHeart, FaTimes } from "react-icons/fa";
 import GlobalStyle from "./globalStyles";
 import { ThemeProvider } from "styled-components";
+import CSS from "csstype";
 
 const theme = {
   primary: "#ffffff",
@@ -56,9 +57,12 @@ const movies: MovieCardInterface[] = [
 
 function App(): JSX.Element {
   const [visibleCardIndex, setVisibleCardIndex] = useState(0);
-  const ref = React.useRef<HTMLInputElement>(null);
+  const [animation, setAnimation] = useState<CSS.Properties>({
+    transform: "translateX(0) scale(1)",
+  });
 
-  const nextCard = (): (() => void) => {
+  const handleClickLove = (): (() => void) => {
+    setAnimation({ transform: "translateX(100%) scale(0)" });
     const timer = setTimeout(() => {
       setVisibleCardIndex(
         visibleCardIndex + 1 <= movies.length - 1 ? visibleCardIndex + 1 : 0
@@ -67,7 +71,8 @@ function App(): JSX.Element {
     return () => clearTimeout(timer);
   };
 
-  const previousCard = (): (() => void) => {
+  const handleClickHate = (): (() => void) => {
+    setAnimation({ transform: "translateX(-100%) scale(0)" });
     const timer = setTimeout(() => {
       setVisibleCardIndex(
         visibleCardIndex - 1 >= 0 ? visibleCardIndex - 1 : movies.length - 1
@@ -76,13 +81,11 @@ function App(): JSX.Element {
     return () => clearTimeout(timer);
   };
 
-  console.log("ref", ref);
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <PageWrapper>
-        <CardsWrapper ref={ref}>
+        <CardsWrapper>
           {movies.map((movie, index) => {
             return (
               <MovieCard
@@ -90,17 +93,18 @@ function App(): JSX.Element {
                 key={index}
                 index={index}
                 visibleCardIndex={visibleCardIndex}
+                animation={animation}
               />
             );
           })}
         </CardsWrapper>
 
         <ButtonWrapper>
-          <TinderButton onClick={() => previousCard()}>
+          <TinderButton onClick={() => handleClickHate()}>
             <FaTimes />
           </TinderButton>
 
-          <LoveButton onClick={() => nextCard()}>
+          <LoveButton onClick={() => handleClickLove()}>
             <FaHeart />
           </LoveButton>
         </ButtonWrapper>
