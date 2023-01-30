@@ -1,3 +1,4 @@
+import React from "react";
 import MovieCard from "./componnets/MovieCard";
 import {
   ButtonWrapper,
@@ -7,6 +8,7 @@ import {
   TinderButton,
 } from "./componnets/styled";
 import { FaHeart, FaTimes } from "react-icons/fa";
+import GlobalStyle from "./globalStyles";
 
 export interface MovieCardInterface {
   id: string;
@@ -43,25 +45,28 @@ const movies: MovieCardInterface[] = [
   },
 ];
 
-function App() {
+function App(): JSX.Element {
   return (
-    <PageWrapper>
-      <CardsWrapper>
-        {movies.map((movie) => {
-          return <MovieCard {...movie} key={movie.id} />;
-        })}
-      </CardsWrapper>
+    <>
+      <GlobalStyle />
+      <PageWrapper>
+        <CardsWrapper>
+          {movies.map((movie) => {
+            return <MovieCard {...movie} key={movie.id} />;
+          })}
+        </CardsWrapper>
 
-      <ButtonWrapper>
-        <TinderButton>
-          <FaTimes />
-        </TinderButton>
+        <ButtonWrapper>
+          <TinderButton>
+            <FaTimes />
+          </TinderButton>
 
-        <LoveButton>
-          <FaHeart />
-        </LoveButton>
-      </ButtonWrapper>
-    </PageWrapper>
+          <LoveButton>
+            <FaHeart />
+          </LoveButton>
+        </ButtonWrapper>
+      </PageWrapper>
+    </>
   );
 }
 

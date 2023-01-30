@@ -1,3 +1,4 @@
+import React from "react";
 import { MovieCardInterface } from "../../App";
 import SingleCard from "../SingleCard";
 import { CardWrapper, MovieRating, MovieTitle, MovieDesc } from "./styled";
@@ -7,7 +8,7 @@ const MovieCard = ({
   title,
   summary,
   rating,
-}: Omit<MovieCardInterface, "id">) => {
+}: Omit<MovieCardInterface, "id">): JSX.Element => {
   return (
     <CardWrapper>
       {/* description card */}
