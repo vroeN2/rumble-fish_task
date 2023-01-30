@@ -6,7 +6,7 @@ interface CardBackground {
 
 export const CardBase = styled.div`
   aspect-ratio: 5 / 7;
-  background-color: #e7ad99;
+  background-color: ${(props) => props.theme.primary};
   position: absolute;
   transition: transform 0.8s cubic-bezier(0.05, 0.43, 0.25, 0.95);
   box-shadow: 0.2vmin 0.2vmin 0.2vmin 0 black;
@@ -15,7 +15,7 @@ export const CardBase = styled.div`
 export const SingleCardWrapper = styled(CardBase)<CardBackground>`
   width: 30vmin;
   border-radius: 1vmin;
-  border: 1px solid #333d48;
+  border: 1px solid ${(props) => props.theme.accent};
 
   &:nth-child(1) {
     /* description card */

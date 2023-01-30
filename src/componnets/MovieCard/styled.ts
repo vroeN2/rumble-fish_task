@@ -21,7 +21,7 @@ export const CardWrapper = styled.div`
 export const MovieTitle = styled.h2`
   margin: 0;
   font-size: 2rem;
-  color: #333d48;
+  color: #1b1b1b;
   text-align: center;
   margin-bottom: 1vmin;
 `;
@@ -29,12 +29,12 @@ export const MovieTitle = styled.h2`
 export const MovieRating = styled.h3`
   margin: 0;
   font-size: 1.2rem;
-  color: #333d48;
+  color: #1b1b1b;
 `;
 
 export const MovieDesc = styled.h3`
   margin: 0;
   padding: 3vmin;
   font-size: 1rem;
-  color: #333d48;
+  color: #1b1b1b;
 `;
