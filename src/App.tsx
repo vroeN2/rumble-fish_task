@@ -72,7 +72,6 @@ function App(): JSX.Element {
     setAnimationMobile({
       transform: "translateX(100%)",
       opacity: 0,
-      // transformOrigin: "bottom right",
     });
     const timer = setTimeout(() => {
       setVisibleCardIndex(
@@ -87,7 +86,6 @@ function App(): JSX.Element {
     setAnimationMobile({
       transform: "translateX(-100%)",
       opacity: 0,
-      // transformOrigin: "bottom left",
     });
     const timer = setTimeout(() => {
       setVisibleCardIndex(

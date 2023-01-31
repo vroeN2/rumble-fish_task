@@ -24,7 +24,7 @@ export const MobileWrapper = styled.div<WithBackground>`
       ),
       url(${({ link }) => link});
     background-size: cover;
-    transition: 0.6s all cubic-bezier(0, 0.68, 1, 0.59);
+    transition: 0.4s all cubic-bezier(0, 0.68, 1, 0.59);
     border-radius: 5vmin;
   }
 `;
@@ -38,7 +38,7 @@ export const MobileContentWrapper = styled.div`
   padding: 2vmin 4vmin;
   display: flex;
   flex-direction: column;
-  transition: 0.4s all cubic-bezier(0, 0.68, 1, 0.59);
+  transition: 0.2s all cubic-bezier(0, 0.68, 1, 0.59);
   transition-delay: 0.2s;
 `;
 
