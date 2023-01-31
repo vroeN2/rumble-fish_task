@@ -4,6 +4,7 @@ import {
   ButtonWrapper,
   CardsWrapper,
   LoveButton,
+  MobileViewWrapper,
   PageWrapper,
   TinderButton,
 } from "./componnets/styled";
@@ -11,6 +12,7 @@ import { FaHeart, FaTimes } from "react-icons/fa";
 import GlobalStyle from "./globalStyles";
 import { ThemeProvider } from "styled-components";
 import CSS from "csstype";
+import MobileView from "./componnets/MobileView";
 
 const theme = {
   primary: "#ffffff",
@@ -58,26 +60,40 @@ const movies: MovieCardInterface[] = [
 function App(): JSX.Element {
   const [visibleCardIndex, setVisibleCardIndex] = useState(0);
   const [animation, setAnimation] = useState<CSS.Properties>({
-    transform: "translateX(0) scale(1)",
+    transform: "translateX(0) scale(0)",
+  });
+  const [animationMobile, setAnimationMobile] = useState<CSS.Properties>({
+    transform: "translateX(0)",
+    opacity: 1,
   });
 
   const handleClickLove = (): (() => void) => {
     setAnimation({ transform: "translateX(100%) scale(0)" });
+    setAnimationMobile({
+      transform: "translateX(100%)",
+      opacity: 0,
+      // transformOrigin: "bottom right",
+    });
     const timer = setTimeout(() => {
       setVisibleCardIndex(
         visibleCardIndex + 1 <= movies.length - 1 ? visibleCardIndex + 1 : 0
       );
-    }, 500);
+    }, 300);
     return () => clearTimeout(timer);
   };
 
   const handleClickHate = (): (() => void) => {
     setAnimation({ transform: "translateX(-100%) scale(0)" });
+    setAnimationMobile({
+      transform: "translateX(-100%)",
+      opacity: 0,
+      // transformOrigin: "bottom left",
+    });
     const timer = setTimeout(() => {
       setVisibleCardIndex(
         visibleCardIndex - 1 >= 0 ? visibleCardIndex - 1 : movies.length - 1
       );
-    }, 500);
+    }, 300);
     return () => clearTimeout(timer);
   };
 
@@ -98,6 +114,21 @@ function App(): JSX.Element {
             );
           })}
         </CardsWrapper>
+
+        <MobileViewWrapper>
+          {movies.map((movie, index) => {
+            return (
+              <MobileView
+                {...movie}
+                key={index}
+                index={index}
+                visibleCardIndex={visibleCardIndex}
+                // animation={animation}
+                animation={animationMobile}
+              />
+            );
+          })}
+        </MobileViewWrapper>
 
         <ButtonWrapper>
           <TinderButton onClick={() => handleClickHate()}>

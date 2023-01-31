@@ -15,7 +15,7 @@ export const CardBase = styled.div`
 export const SingleCardWrapper = styled(CardBase)<CardBackground>`
   width: 30vmin;
   border-radius: 1vmin;
-  border: 1px solid ${(props) => props.theme.accent};
+  border: 0.3vmin solid ${(props) => props.theme.accent};
 
   &:nth-child(1) {
     /* description card */

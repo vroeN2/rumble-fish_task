@@ -4,7 +4,8 @@ import SingleCard from "../SingleCard";
 import { CardWrapper, MovieRating, MovieTitle, MovieDesc } from "./styled";
 import CSS from "csstype";
 
-interface ExtendedMovieCardInterface extends Omit<MovieCardInterface, "id"> {
+export interface ExtendedMovieCardInterface
+  extends Omit<MovieCardInterface, "id"> {
   index: number;
   visibleCardIndex: number;
   animation: CSS.Properties;

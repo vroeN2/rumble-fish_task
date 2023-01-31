@@ -16,6 +16,10 @@ export const CardsWrapper = styled.div`
   width: 30vw;
   display: grid;
   place-items: center;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -25,6 +29,16 @@ export const ButtonWrapper = styled.div`
   margin-top: -35vmin;
   width: 20vmin;
   padding: 0 4vmin;
+
+  @media (max-width: 750px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: 10vh;
+    padding: 4vmin 0;
+  }
 `;
 
 export const TinderButton = styled.button`
@@ -43,6 +57,12 @@ export const TinderButton = styled.button`
   &:hover {
     filter: drop-shadow(0px 0px 0.5vmin ${(props) => props.theme.red});
   }
+
+  @media (max-width: 750px) {
+    height: 15vmin;
+    width: 15vmin;
+    font-size: 8vmin;
+  }
 `;
 
 export const LoveButton = styled(TinderButton)`
@@ -52,5 +72,21 @@ export const LoveButton = styled(TinderButton)`
 
   &:hover {
     filter: drop-shadow(0px 0px 0.5vmin ${(props) => props.theme.green});
+  }
+
+  @media (max-width: 750px) {
+    font-size: 7vmin;
+  }
+`;
+
+export const MobileViewWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 750px) {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
   }
 `;
