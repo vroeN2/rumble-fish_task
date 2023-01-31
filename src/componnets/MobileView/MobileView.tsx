@@ -23,7 +23,7 @@ const MobileView = ({
       : animation;
 
   return (
-    <MobileWrapper link={image} style={currentStyle}>
+    <MobileWrapper link={image} style={currentStyle} data-testid="movies-cards">
       <MobileContentWrapper style={currentStyle}>
         <MobileMovieTitle>{title}</MobileMovieTitle>
 

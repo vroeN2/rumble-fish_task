@@ -26,7 +26,7 @@ const MovieCard = ({
       : animation;
 
   return (
-    <CardWrapper style={currentStyle}>
+    <CardWrapper style={currentStyle} data-testid="movies-cards">
       {/* description card */}
       <SingleCard>
         <MovieDesc>{summary}</MovieDesc>

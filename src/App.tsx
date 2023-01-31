@@ -30,7 +30,7 @@ export interface MovieCardInterface {
   rating: number;
 }
 
-const movies: MovieCardInterface[] = [
+export const movies: MovieCardInterface[] = [
   {
     id: "1",
     image: "https://picsum.photos/800/1200",
@@ -121,7 +121,6 @@ function App(): JSX.Element {
                 key={index}
                 index={index}
                 visibleCardIndex={visibleCardIndex}
-                // animation={animation}
                 animation={animationMobile}
               />
             );
